@@ -1,11 +1,18 @@
 // save and retrieve environment variables in dotenv
+
+/**
+ * Typical .env file:
+FORGE_CLIENT_ID=forgeclientid
+FORGE_CLIENT_SECRET=forgeclientsecret
+FORGE_BUCKET=fpdtestbuckets
+ */
 require('dotenv').config();
 const fs = require('fs');
 const request = require('request');
 const FormData = require('form-data');
 
 const { DesignAutomationClient } = require('forge-server-utils');
-const { FORGE_CLIENT_ID, FORGE_CLIENT_SECRET } = process.env;
+const { FORGE_CLIENT_ID, FORGE_CLIENT_SECRET ,FORGE_BUCKET} = process.env;
 const client = new DesignAutomationClient({ client_id: FORGE_CLIENT_ID, client_secret: FORGE_CLIENT_SECRET });
 
 //valid bundle names : [a-z][A-Z][_]
